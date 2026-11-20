@@ -33,14 +33,14 @@
 .wu79-vote .wu79-unit h3 { margin: 4px 0 12px; color: var(--purple); font-size: clamp(22px, 3vw, 29px); line-height: 1.12; }
 .wu79-vote .wu79-unit .wu79-kicker { color: var(--purple); }
 .wu79-vote .wu79-unit .wu79-people { margin-bottom: 10px; }
-.wu79-vote .wu79-pdf { display: inline-flex; flex-wrap: wrap; align-items: center; min-height: 44px; column-gap: 6px; color: var(--purple); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+.wu79-vote .wu79-unit-note { margin: 9px 0 0; max-width: 65ch; color: var(--muted); font-size: 14px; }
+.wu79-vote .wu79-bio-link { display: inline-flex; flex-wrap: wrap; align-items: center; min-height: 44px; column-gap: 6px; color: var(--purple); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 .wu79-vote .wu79-shared { margin-top: 20px; padding: 20px 23px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
 .wu79-vote .wu79-shared h2 { margin: 0 0 5px; color: var(--purple); font-size: 27px; line-height: 1.12; }
-.wu79-vote .wu79-shared h3 { margin: 19px 0 4px; font-size: 18px; color: var(--purple); }
-.wu79-vote .wu79-intro { margin: 0 0 12px; color: var(--muted); font-size: 15px; }
+.wu79-vote .wu79-shared h3 { margin: 14px 0 4px; font-size: 18px; color: var(--purple); }
 .wu79-vote .wu79-people { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 18px; margin: 0; padding: 0; list-style: none; }
 .wu79-vote .wu79-person { display: flex; align-items: center; gap: 10px; margin: 0; padding: 8px 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.wu79-vote .wu79-person strong { display: block; color: var(--ink); font-size: 15px; line-height: 1.25; overflow-wrap: anywhere; }
+.wu79-vote .wu79-person strong { display: block; color: var(--ink); font-size: 17px; line-height: 1.25; overflow-wrap: anywhere; }
 .wu79-vote .wu79-role { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; line-height: 1.3; }
 .wu79-vote .wu79-portrait { display: none; }
 .wu79-vote .wu79-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -91,27 +91,6 @@
  .wu79-vote [data-portrait="william-stubbs"] { background-position: 0% 100%; }
 }
 
-.wu79-vote .wu79-print-action { display: none; }
-.wu79-vote.wu79-enhanced .wu79-print-action {
- display: inline-flex; align-items: center; min-height: 44px; padding: 7px 0;
- border: 0; background: transparent; color: var(--purple); font: inherit;
- font-weight: 800; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
-}
-@media print {
- .wu79-guide-page { background: #fff; }
- .wu79-demo-brand, .wu79-demo-header, .wu79-vote .wu79-ribbon,
- .wu79-vote .wu79-unit-select, .wu79-vote .wu79-print-action,
- .wu79-vote .wu79-portrait, .wu79-vote .wu79-pdf { display: none !important; }
- .wu79-vote .wu79-hero { padding: 0 0 12pt; background: #fff; color: #251c28; }
- .wu79-vote .wu79-hero .wu79-kicker, .wu79-vote .wu79-hero p:last-child { color: #251c28; }
- .wu79-vote .wu79-hero h1 { font-size: 23pt; }
- .wu79-vote .wu79-content { width: 100%; padding: 0; }
- .wu79-vote .wu79-unit, .wu79-vote .wu79-shared { padding: 9pt; background: #fff; }
- .wu79-vote .wu79-unit, .wu79-vote .wu79-person { break-inside: avoid; }
- .wu79-vote .wu79-people { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12pt; }
- .wu79-vote .wu79-person { padding: 4pt 0; }
-}
-
 .wu79-demo-header { background: #fff; border-bottom: 1px solid #e4dce7; font: 700 15px/1.25 Arial, sans-serif; }
 .wu79-demo-header-inner { width: min(1080px, calc(100% - 36px)); min-height: 64px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px 22px; flex-wrap: wrap; padding: 9px 0; }
 .wu79-demo-header a { display: inline-flex; align-items: center; min-height: 42px; text-decoration: none; color: #4a1457; }
@@ -157,7 +136,7 @@
     <a href="#long-term-care" data-unit-link>Part-Time Long-Term Care</a>
     <a href="#community-housing" data-unit-link>Toronto Community Housing</a>
     <a href="#seniors-housing" data-unit-link>Toronto Seniors Housing</a>
-    <a href="#bridgepoint-service" data-unit-link>Bridgepoint Service</a>
+    <a href="#bridgepoint-service" data-unit-link>Bridgepoint</a>
   </nav>
   <div class="wu79-unit-select" hidden>
    <label for="wu79-choose-unit">Choose your bargaining unit</label>
@@ -169,10 +148,10 @@
     <option value="long-term-care">Part-Time Long-Term Care</option>
     <option value="community-housing">Toronto Community Housing</option>
     <option value="seniors-housing">Toronto Seniors Housing</option>
-    <option value="bridgepoint-service">Bridgepoint Service</option>
+    <option value="bridgepoint-service">Bridgepoint</option>
    </select>
   </div>
-  <p class="wu79-choose-hint" data-unit-hint hidden>Select a unit for its officer candidates and print option.</p>
+  <p class="wu79-choose-hint" data-unit-hint hidden>Choose your unit to see its candidates.</p>
   <div class="wu79-unit-list"><article class="wu79-unit" id="full-time" data-unit-panel tabindex="-1" aria-labelledby="full-time-title">
   <p class="wu79-kicker">Your unit officers</p>
   <h3 id="full-time-title">Full-Time Unit</h3>
@@ -180,47 +159,46 @@
 <li class="wu79-person"><span class="wu79-portrait" data-portrait="jason-desjardins" aria-hidden="true"></span><div><strong>Jason Desjardins</strong><span class="wu79-role">Unit Officer</span></div></li>
 <li class="wu79-person"><span class="wu79-portrait" data-portrait="sherry-desmond" aria-hidden="true"></span><div><strong>Sherry Desmond</strong><span class="wu79-role">Unit Officer</span></div></li>
 <li class="wu79-person"><span class="wu79-portrait" data-portrait="melinda-mcclean" aria-hidden="true"></span><div><strong>Melinda McClean</strong><span class="wu79-role">Unit Officer</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  
 </article>
 <article class="wu79-unit" id="part-time-unit-b" data-unit-panel tabindex="-1" aria-labelledby="part-time-unit-b-title">
   <p class="wu79-kicker">Your unit officer</p>
   <h3 id="part-time-unit-b-title">Part-Time Unit B</h3>
-  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="omar-fairclough" aria-hidden="true"></span><div><strong>Omar Fairclough</strong><span class="wu79-role">Acclaimed. No vote needed.</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="omar-fairclough" aria-hidden="true"></span><div><strong>Omar Fairclough</strong><span class="wu79-role">Unit Officer · Acclaimed</span></div></li></ul>
+  <p class="wu79-unit-note">Stronger together. Support the Workers United 79 team below.</p>
 </article>
 <article class="wu79-unit" id="part-time-recreation" data-unit-panel tabindex="-1" aria-labelledby="part-time-recreation-title">
   <p class="wu79-kicker">Your unit officer</p>
   <h3 id="part-time-recreation-title">Part-Time Recreation Unit</h3>
   <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="talla-ahmad" aria-hidden="true"></span><div><strong>Talla Ahmad</strong><span class="wu79-role">Unit Officer</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  
 </article>
 <article class="wu79-unit" id="long-term-care" data-unit-panel tabindex="-1" aria-labelledby="long-term-care-title">
   <p class="wu79-kicker">Your unit officer</p>
   <h3 id="long-term-care-title">Seniors Services and Long-Term Care Unit</h3>
   <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="florence-mwangi" aria-hidden="true"></span><div><strong>Florence Mwangi</strong><span class="wu79-role">Unit Officer</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  
 </article>
 <article class="wu79-unit" id="community-housing" data-unit-panel tabindex="-1" aria-labelledby="community-housing-title">
   <p class="wu79-kicker">Your unit officer</p>
   <h3 id="community-housing-title">Toronto Community Housing Unit</h3>
   <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="joel-leotaud" aria-hidden="true"></span><div><strong>Joel Leotaud</strong><span class="wu79-role">Unit Officer</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  
 </article>
 <article class="wu79-unit" id="seniors-housing" data-unit-panel tabindex="-1" aria-labelledby="seniors-housing-title">
   <p class="wu79-kicker">Your unit officer</p>
   <h3 id="seniors-housing-title">Toronto Seniors Housing Unit</h3>
-  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="ron-reyes" aria-hidden="true"></span><div><strong>Ron Reyes</strong><span class="wu79-role">Acclaimed. No vote needed.</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="ron-reyes" aria-hidden="true"></span><div><strong>Ron Reyes</strong><span class="wu79-role">Unit Officer · Acclaimed</span></div></li></ul>
+  <p class="wu79-unit-note">Stronger together. Support the Workers United 79 team below.</p>
 </article>
 <article class="wu79-unit" id="bridgepoint-service" data-unit-panel tabindex="-1" aria-labelledby="bridgepoint-service-title">
   <p class="wu79-kicker">Your unit officer</p>
-  <h3 id="bridgepoint-service-title">Hennick Bridgepoint Service Unit</h3>
-  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="william-stubbs" aria-hidden="true"></span><div><strong>William Stubbs</strong><span class="wu79-role">Unit Officer</span></div></li></ul>
-  <button type="button" class="wu79-print-action">Print this guide</button>
+  <h3 id="bridgepoint-service-title">Bridgepoint</h3>
+  <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="william-stubbs" aria-hidden="true"></span><div><strong>William Stubbs</strong><span class="wu79-role">Unit Officer — Service Unit</span></div></li></ul>
+  <p class="wu79-unit-note"><strong>Nursing and Paramedical members:</strong> see the Executive Committee and Executive Officers at Large candidates below.</p>
 </article></div>
   <div class="wu79-shared">
-   <h2>On every unit’s guide</h2>
-   <p class="wu79-intro">Vote for the Workers United 79 Executive Committee and Executive Officers at Large below, plus your unit’s candidates where a vote is needed.</p>
+   <h2>Vote Workers United 79</h2>
    <section aria-labelledby="wu79-executive-title">
     <h3 id="wu79-executive-title">Executive Committee</h3>
     <ul class="wu79-people"><li class="wu79-person"><span class="wu79-portrait" data-portrait="nas-yadollahi" aria-hidden="true"></span><div><strong>Nas Yadollahi</strong><span class="wu79-role">President</span></div></li>
@@ -248,7 +226,7 @@
 <li class="wu79-person"><span class="wu79-portrait" data-portrait="carla-wallbridge" aria-hidden="true"></span><div><strong>Carla Wallbridge</strong><span class="wu79-role">Children’s Services</span></div></li>
 <li class="wu79-person"><span class="wu79-portrait" data-portrait="will-walsh" aria-hidden="true"></span><div><strong>Will Walsh</strong><span class="wu79-role">Toronto Paramedic Services</span></div></li></ul>
    </section>
-   <a class="wu79-pdf" href="https://workersunited79.ca/slate/">Meet the slate and read the candidate bios <span aria-hidden="true">→</span></a>
+   <a class="wu79-bio-link" href="https://workersunited79.ca/slate/">Meet the slate and read the candidate bios <span aria-hidden="true">→</span></a>
   </div>
  </div>
 </section></main>
@@ -300,12 +278,6 @@ if (votingGuide) {
     syncWithUrl();
     selectWrapper.hidden = false;
     votingGuide.classList.add('wu79-enhanced');
-}
-
-if (votingGuide) {
-    for (const button of votingGuide.querySelectorAll('.wu79-print-action')) {
-        button.addEventListener('click', () => window.print());
-    }
 }
 </script>
 </body>
